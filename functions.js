@@ -15,7 +15,19 @@ function clicked() {
     clickCount ++
     let count = clickCount
     console.log(`Button clicked ${clickCount} times`)
-    countEL.innerHTML = `There are ${count} cookies`
+    if (count >= 1000) {
+        countEL.innerHTML = `You have a lot of time on your hands, there is no way you need ${count} cookies`
+    } else if (count >= 500) {
+        countEL.innerHTML = `If you had as many friends as cookies, you would have ${count} friends`
+    }else if (count >= 150) {
+        countEL.innerHTML = `Seriously, you won, it's over, you have ${count} cookies`
+    }else if (count >= 100) {
+        countEL.innerHTML = `Congrats! You have won with ${count} cookies`
+    }else if (count >= 50) {
+        countEL.innerHTML = `Keep going!  You have ${count} cookies`
+    }else {
+        countEL.innerHTML = `There are ${count} cookies`
+    }
 }
 let startButtonEl = document.getElementById('start')
 
