@@ -30,8 +30,20 @@ function clicked() {
     }
 }
 let startButtonEl = document.getElementById('start')
-
+let allEl = document.getElementById('all')
+function shrink() {
+    startButtonEl.classList.add('shrink')
+    allEl.classList.add('flash')
+    console.log("Shrink")
+}
+function grow() {
+    startButtonEl.classList.remove('shrink')
+    allEl.classList.remove('flash')
+    console.log("Grow")
+}
 startButtonEl.addEventListener('click', clicked)
+startButtonEl.addEventListener('mousedown', shrink)
+startButtonEl.addEventListener('mouseup', grow)
 
 //sayHi('Bob')
 console.log("End of code")

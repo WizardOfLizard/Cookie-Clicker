@@ -1,0 +1,6 @@
+.shrink {
+    transform: scale(.80);
+}
+.flash {
+    background-color: rgb(134, 134, 134);
+}
