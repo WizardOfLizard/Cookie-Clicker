@@ -31,6 +31,10 @@ function clicked() {
 }
 let startButtonEl = document.getElementById('start')
 let allEl = document.getElementById('all')
+let removeEl = document.getElementById('removeA')
+let returnEl = document.getElementById('return')
+let hideEl = document.getElementById('hide')
+let showEl = document.getElementById('show')
 function shrink() {
     startButtonEl.classList.add('shrink')
     allEl.classList.add('flash')
@@ -41,9 +45,29 @@ function grow() {
     allEl.classList.remove('flash')
     console.log("Grow")
 }
+function remove() {
+    startButtonEl.classList.add("removeA")
+    console.log("remove")
+}
+function hideA() {
+    startButtonEl.classList.add("hide")
+}
+function returnA() {
+    startButtonEl.classList.remove("removeA")
+}
+function show() {
+    startButtonEl.classList.remove("hide")
+}
+
 startButtonEl.addEventListener('click', clicked)
 startButtonEl.addEventListener('mousedown', shrink)
 startButtonEl.addEventListener('mouseup', grow)
+
+
+removeEl.addEventListener('click', remove)
+returnEl.addEventListener('click', returnA)
+hideEl.addEventListener('click', hideA)
+showEl.addEventListener('click', show)
 
 //sayHi('Bob')
 console.log("End of code")
