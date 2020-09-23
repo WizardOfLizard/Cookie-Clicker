@@ -1,43 +1,5 @@
 let clickCount = 0
 let countEL = document.getElementById("count")
-console.log("Code running")
-
-function doThing() {
-    console.log("Doing the thing")
-}
-
-
-function sayHi(name) {
-    console.log("Hello "+name)
-}
-
-function clicked() {
-    clickCount ++
-    if (doubled === true) {
-        clickCount ++
-    }
-    let count = clickCount
-    console.log(`Button clicked ${clickCount} times`)
-    if (count >= 1000) {
-        countEL.innerHTML = `You have a lot of time on your hands, there is no way you need ${count} cookies`
-    } else if (count >= 500) {
-        countEL.innerHTML = `If you had as many friends as cookies, you would have ${count} friends`
-        if (peanutted === false) {
-            peanutEl.classList.remove("removeA")
-        }
-    }else if (count >= 150) {
-        countEL.innerHTML = `Seriously, you won, it's over, you have ${count} cookies`
-        if (doubled === false) {
-            doubleEl.classList.remove("removeA")
-        }
-    }else if (count >= 100) {
-        countEL.innerHTML = `Congrats! You have won with ${count} cookies`
-    }else if (count >= 50) {
-        countEL.innerHTML = `Keep going!  You have ${count} cookies`
-    }else {
-        countEL.innerHTML = `There are ${count} cookies`
-    }
-}
 
 let doubled = false
 let peanutted = false
@@ -53,6 +15,34 @@ let showEl = document.getElementById('show')
 let doubleEl = document.getElementById('double')
 
 let peanutEl = document.getElementById('peanut')
+
+function clicked() {
+    clickCount++
+    if (doubled) {
+        clickCount++
+    }
+    let count = clickCount
+    console.log(`Button clicked ${clickCount} times`)
+    if (count >= 1000) {
+        countEL.innerHTML = `You have a lot of time on your hands, there is no way you need ${count} cookies`
+    } else if (count >= 500) {
+        countEL.innerHTML = `If you had as many friends as cookies, you would have ${count} friends`
+        if (peanutted === false) {
+            peanutEl.classList.remove("removeA")
+        }
+    }else if (count >= 150) {
+        countEL.innerHTML = `Seriously, you won, it's over, you have ${count} cookies`
+        if (!doubled) {
+            doubleEl.classList.remove("removeA")
+        }
+    }else if (count >= 100) {
+        countEL.innerHTML = `Congrats! You have won with ${count} cookies`
+    }else if (count >= 50) {
+        countEL.innerHTML = `Keep going!  You have ${count} cookies`
+    }else {
+        countEL.innerHTML = `There are ${count} cookies`
+    }
+}
 
 function doubleIt() {
     doubled = true
@@ -104,6 +94,3 @@ showEl.addEventListener('click', show)
 
 doubleEl.addEventListener('click', doubleIt)
 peanutEl.addEventListener('click', peanutIt)
-
-//sayHi('Bob')
-console.log("End of code")
