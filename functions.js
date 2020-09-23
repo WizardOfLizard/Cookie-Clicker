@@ -3,6 +3,7 @@ let countEL = document.getElementById("count")
 
 let doubled = false
 let peanutted = false
+let automated = false
 
 let startButtonEl = document.getElementById('start')
 let allEl = document.getElementById('all')
@@ -15,6 +16,8 @@ let showEl = document.getElementById('show')
 let doubleEl = document.getElementById('double')
 
 let peanutEl = document.getElementById('peanut')
+
+let autoEl = document.getElementById('auto')
 
 function clicked() {
     clickCount++
@@ -42,20 +45,43 @@ function clicked() {
     }else {
         countEL.innerHTML = `There are ${count} cookies`
     }
+    if (count >= 200 && !automated) {
+        autoEl.classList.remove("removeA")
+    }
 }
 
 function doubleIt() {
-    doubled = true
-    doubleEl.classList.add("removeA")
-    clickCount -= 150
+    if (clickCount >= 150) {
+        doubled = true
+        doubleEl.classList.add("removeA")
+        clickCount -= 150
+    } else {
+        window.alert("You need 150 cookies to purchase this upgrade.")
+    }
 }
 
 function peanutIt() {
-    peanutted = true
-    peanutEl.classList.add("removeA")
-    clickCount -= 500
-    console.log("cookie changed")
-    document.getElementById("start").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1gOPMOsAUnlb7g8pIwjRpZdrMnDPVsS3IrQ&usqp=CAU"
+    if (clickCount >= 500) {
+        peanutted = true
+        peanutEl.classList.add("removeA")
+        clickCount -= 500
+        console.log("cookie changed")
+        document.getElementById("start").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1gOPMOsAUnlb7g8pIwjRpZdrMnDPVsS3IrQ&usqp=CAU"
+    } else {
+        window.alert("You need 500 cookies to purchase this upgrade.")
+    }
+}
+
+function automateIt() {
+    if (clickCount >= 200) {
+        automated = true
+        autoEl.classList.add("removeA")
+        clickCount-=200
+        console.log("Autoclicker engaged")
+        let autoClick = setInterval(clicked, 1000)
+    } else {
+        window.alert("You need 200 cookies to purchase this upgrade.")
+    }
 }
 
 function shrink() {
@@ -94,3 +120,4 @@ showEl.addEventListener('click', show)
 
 doubleEl.addEventListener('click', doubleIt)
 peanutEl.addEventListener('click', peanutIt)
+autoEl.addEventListener('click', automateIt)
