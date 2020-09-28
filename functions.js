@@ -96,16 +96,24 @@ function grow() {
 }
 function remove() {
     startButtonEl.classList.add("removeA")
+    removeEl.classList.add("removeA")
+    returnEl.classList.remove("removeA")
     console.log("remove")
 }
 function hideA() {
     startButtonEl.classList.add("hide")
+    hideEl.classList.add("removeA")
+    showEl.classList.remove("removeA")
 }
 function returnA() {
     startButtonEl.classList.remove("removeA")
+    removeEl.classList.remove("removeA")
+    returnEl.classList.add("removeA")
 }
 function show() {
     startButtonEl.classList.remove("hide")
+    hideEl.classList.remove("removeA")
+    showEl.classList.add("removeA")
 }
 
 startButtonEl.addEventListener('click', clicked)
