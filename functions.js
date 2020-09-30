@@ -114,14 +114,24 @@ function secondIt() {
 
 function shrink() {
     startButtonEl.classList.add('shrink')
-    allEl.classList.add('flash')
+    //allEl.classList.add('flash')
     //console.log("Shrink")
 }
 function grow() {
     startButtonEl.classList.remove('shrink')
-    allEl.classList.remove('flash')
+    //allEl.classList.remove('flash')
     //console.log("Grow")
 }
+
+function secShrink() {
+    secondaryEl.classList.add('shrink')
+    //console.log("secShrink")
+}
+function secGrow() {
+    secondaryEl.classList.remove('shrink')
+    //console.log("secGrow")
+}
+
 function remove() {
     startButtonEl.classList.add("removeA")
     removeEl.classList.add("removeA")
@@ -149,6 +159,8 @@ startButtonEl.addEventListener('mousedown', shrink)
 startButtonEl.addEventListener('mouseup', grow)
 
 document.addEventListener('keydown', secClicked)
+document.addEventListener('keydown', secShrink)
+document.addEventListener('keyup', secGrow)
 
 removeEl.addEventListener('click', remove)
 returnEl.addEventListener('click', returnA)
