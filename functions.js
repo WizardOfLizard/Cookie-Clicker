@@ -134,22 +134,26 @@ function secGrow() {
 
 function remove() {
     startButtonEl.classList.add("removeA")
+    secondaryEl.classList.add("removeA")
     removeEl.classList.add("removeA")
     returnEl.classList.remove("removeA")
     //console.log("remove")
 }
 function hideA() {
     startButtonEl.classList.add("hide")
+    secondaryEl.classList.add("hide")
     hideEl.classList.add("removeA")
     showEl.classList.remove("removeA")
 }
 function returnA() {
     startButtonEl.classList.remove("removeA")
+    secondaryEl.classList.remove("removeA")
     removeEl.classList.remove("removeA")
     returnEl.classList.add("removeA")
 }
 function show() {
     startButtonEl.classList.remove("hide")
+    secondaryEl.classList.remove("hide")
     hideEl.classList.remove("removeA")
     showEl.classList.add("removeA")
 }
